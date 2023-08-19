@@ -2,6 +2,9 @@ import { Auth0Provider } from '@auth0/auth0-react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+const client = process.env.REACT_APP_AUTH_CLIENT
+const domain = process.env.REACT_APP_AUTH_DOMAIN
+
 export const Auth0ProviderWithNavigate = ({ children }) => {
     
     const navigate = useNavigate();
@@ -12,8 +15,8 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
     
     return (
         <Auth0Provider
-            domain="dev-xpih3wy6bfwa6fzy.us.auth0.com"
-            clientId="jzowyFweyiH3eGtxfJrlhtdLoK6kVpD7"
+            domain={domain}
+            clientId={client}
             authorizationParams={{
                 redirect_uri: window.location.origin
             }}
