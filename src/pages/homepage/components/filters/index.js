@@ -52,6 +52,7 @@ export const Filters = ({ activeFilters, setActiveFilters }) => {
                 )
             })}
             <Button
+                color="info"
                 variant="text"
                 sx={{ ml: "auto !important" }}
                 onClick={onOpenSort}>
