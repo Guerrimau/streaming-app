@@ -6,7 +6,7 @@ export const ContentCard = ({ data }) => {
     return (
         <Card>
             <CardActionArea>
-                <CardMedia component="img" height="200px" src="" />
+                <CardMedia component="img" height="250px" src={data.images["Poster Art"].url} />
                 <CardContent>
                     <Typography>
                         {data.title}
