@@ -1,9 +1,16 @@
+import React, { useEffect } from 'react'
 import { Button, Chip, Divider, Stack, Typography } from '@mui/material'
-import React from 'react'
 
 export const SpotlightContent = ({ content = {} }) => {
 
-    const selectedContent = content?.[15];
+    const getRandomItemFromArray = (array) => {
+        if (array.length === 0) return null;
+        const randomIndex = Math.floor(Math.random() * array.length);
+        const randomElement = array[randomIndex];
+        return randomElement;
+    }
+
+    const selectedContent = getRandomItemFromArray(content);
 
     return (
         <Stack
