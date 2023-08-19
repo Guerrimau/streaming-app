@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useMemo } from 'react'
 import { Button, Chip, Divider, Stack, Typography } from '@mui/material'
+import { useImage } from '../../../../hooks/useImage'
+import { getRandomItemFromArray } from '../../../../utils/get-random-element-from-array';
 
-export const SpotlightContent = ({ content = {} }) => {
-
-    const getRandomItemFromArray = (array) => {
-        if (array.length === 0) return null;
-        const randomIndex = Math.floor(Math.random() * array.length);
-        const randomElement = array[randomIndex];
-        return randomElement;
-    }
-
-    const selectedContent = getRandomItemFromArray(content);
+export const SpotlightContent = ({ content = [] }) => {
+    const selectedContent = useMemo(() => getRandomItemFromArray(content), [content]);
+    
+    const { image, handleImageError } = useImage(selectedContent?.images?.["Poster Art"].url);
 
     return (
         <Stack
@@ -21,7 +17,9 @@ export const SpotlightContent = ({ content = {} }) => {
             <Stack direction="row" width="60%" spacing={3}>
                 <img
                     height="350px"
-                    src={selectedContent?.images["Poster Art"].url}
+                    width="250px"
+                    src={image}
+                    onError={handleImageError}
                     alt="movie-poster" />
                 <Stack spacing={2} justifyContent="center">
                     <Typography variant="h4">{selectedContent?.title}</Typography>
