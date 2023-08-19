@@ -3,7 +3,7 @@ import { Box, Button, Chip, Menu, MenuItem, Stack } from '@mui/material'
 
 const FILTERS_TYPE_OPTIONS = [
     "All",
-    "Movies",
+    "Movie",
     "Series",
 ];
 
@@ -11,8 +11,6 @@ const FILTERS_SORT_OPTIONS = ["Year", "Name", "None"];
 
 export const Filters = ({ activeFilters, setActiveFilters }) => {
     const [anchorSort, setAnchorSort] = useState(null);
-
-    console.log(activeFilters);
 
     const onTypeFilterClick = (type) => {
         setActiveFilters(prev => ({
