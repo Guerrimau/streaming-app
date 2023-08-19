@@ -19,7 +19,7 @@ export const HomePage = () => {
     return (
         <main>
             <AppBar />
-            <SpotlightContent />
+            {/* <SpotlightContent /> */}
             <ContentOverview content={content} />
         </main>
     )
