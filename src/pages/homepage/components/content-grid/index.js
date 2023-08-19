@@ -5,11 +5,11 @@ import { ContentCard } from '../content-card'
 export const ContentGrid = ({ content = [] }) => {
     return (
         <Grid container spacing={4}>
-            <Grid item xs={2}>
-                {content.map(item => (
+            {content.map(item => (
+                <Grid item xs={2}>
                     <ContentCard data={item} />
-                ))}
-            </Grid>
+                </Grid>
+            ))}
         </Grid>
     )
 }
