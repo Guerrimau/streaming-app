@@ -1,5 +1,5 @@
+import React, { useMemo, useState } from 'react'
 import { Box, Divider, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
 import { Filters } from '../filters'
 import { ContentGrid } from '../content-grid'
 import { applyFiltersToContent } from '../../utilities/apply-filters-to-content'
@@ -10,7 +10,7 @@ export const ContentOverview = ({ content }) => {
         type: "All"
     })
 
-    const filteredContent = applyFiltersToContent(content, activeFilters);
+    const filteredContent = useMemo(() => applyFiltersToContent(content, activeFilters), [content, activeFilters]); 
 
     return (
         <Stack
