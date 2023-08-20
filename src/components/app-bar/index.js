@@ -17,7 +17,7 @@ export const AppBar = () => {
     };
 
     const onLogout = () => {
-        const loginUrl = window.location.origin + "/login";
+        const loginUrl = window.location.origin;
         logout({ logoutParams: { returnTo: loginUrl }})
     }
 
