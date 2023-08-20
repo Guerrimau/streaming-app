@@ -16,6 +16,11 @@ export const AppBar = () => {
         setAnchorElUser(null);
     };
 
+    const onLogout = () => {
+        const loginUrl = window.location.origin + "/login";
+        logout({ logoutParams: { returnTo: loginUrl }})
+    }
+
     return (
         <MuiAppBar position="static">
             <Toolbar>
@@ -47,7 +52,7 @@ export const AppBar = () => {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        <MenuItem onClick={logout}>
+                        <MenuItem onClick={onLogout}>
                             <Typography textAlign="center">Logout</Typography>
                         </MenuItem>
                     </Menu>
